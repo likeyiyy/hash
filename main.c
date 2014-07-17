@@ -64,11 +64,10 @@ int main(int argc,char ** argv)
 
     hash_travel_viewer(ht);
 
-    for(int i = 0; i < 1000; i++)
     {
-        if(hash_lookup_item(ht,item[i/2].id,&item[i/2]) != NULL)
+        if(hash_lookup_item(ht,512,&item[2]) != NULL)
         {
-            printf("hit it %d\n",item[i/2].id);
+            printf("hit it %d\n",item[2].id);
         }
         else
         {

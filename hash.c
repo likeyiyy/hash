@@ -8,14 +8,6 @@
 #include "includes.h"
 extern uint32_t global_trace;
 
-static inline void exit_if_ptr_is_null(void * ptr,const char * message) 
-{
-    if(ptr == NULL)
-    {   
-        printf("%s\n",message);
-        exit(-1);
-    }   
-}
   
 static int next_prime(int x)
 {
@@ -101,15 +93,15 @@ hash_table * hash_create(int num,ht_ops_t * ops)
 }
 /*
 * 2. 查找
+* 查找的本质是，给出一组特性
+* hash_lookup把特性编程key，然后再把比较特性。
 * */
 void * hash_lookup_item(hash_table * ht, 
                         uint32_t key, 
                         void * value)
 {
-    struct blist * list = (struct blist *)value;
-    struct list_head * ll;
-    item_t * item = list->item;
 
+    struct list_head * ll;
     bucket_t * bucket = &ht -> buckets[key % ht->num_buckets];
     ll = &bucket->list;
     compare * compare_handler = ht->ops->compare_handler;
@@ -118,7 +110,7 @@ void * hash_lookup_item(hash_table * ht,
         TRACE(LOG_FAULT,"compare_handler can not be NULL\n");
         exit(0);
     }
-    return (void *) find_list(ll,item,compare_handler);    
+    return (void *) find_list(ll,value,compare_handler);    
 }
 /*
 * 3. 插入

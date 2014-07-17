@@ -74,6 +74,15 @@
         } while (0)
 #endif
 
+static inline void exit_if_ptr_is_null(void * ptr,const char * message) 
+{
+    if(ptr == NULL)
+    {   
+        printf("%s\n",message);
+        exit(-1);
+    }   
+}
+
 #define ALLONE(n) (0xFFFFFFFF >> (32 - n))
 
 #define LOG_FAULT   (1 << 0)
@@ -101,7 +110,15 @@ typedef struct
     uint32_t id;
     unsigned char * data;
 }item_t;
+
+#define MAKE_HASH(n) (n)
+
+#include "error.h"
+#include "queue.h"
 #include "list.h"
 #include "hash.h"
+
+#include "entity.h"
+#include "sysenv.h"
 
 #endif
