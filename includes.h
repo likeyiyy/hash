@@ -105,20 +105,25 @@ static inline void exit_if_ptr_is_null(void * ptr,const char * message)
                 printf("[DEBUG] <%s> "fmt"", __FUNCTION__, ##__VA_ARGS__); 			\
         } while(0)
 
-typedef struct 
-{
-    uint32_t id;
-    unsigned char * data;
-}item_t;
 
 #define MAKE_HASH(n) (n)
 
+
+#define GLOBAL_ENTITY_NUMS  0xffff
+#define PER_SEND_NUMS       60
+
+#define MAILBOX_SIZE        50
+#define FAILED_SIZE         100
+#define WAITING_SIZE        1000
+#define SUCCESSED_SIZE      10000
+
 #include "error.h"
 #include "queue.h"
-#include "list.h"
-#include "hash.h"
 
 #include "entity.h"
+
+#include "list.h"
+#include "hash.h"
 #include "sysenv.h"
 
 #endif

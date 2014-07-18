@@ -37,7 +37,7 @@ static int next_prime(int x)
 }
 
 struct blist * find_list(struct list_head * head, 
-                         item_t * item,
+                         void * item,
                          compare * compare_handler)
 {
         struct list_head * p;
@@ -122,7 +122,7 @@ int  hash_add_item(hash_table ** htp, uint32_t key, void * value )
     struct blist * blist;
     struct blist * new_blist;
     hash_table * ht = *htp;
-    item_t * item = (item_t *)value;
+    void * item = (void *)value;
     //manager_t * manager = list_entry(htp,manager_t,ht);
     /*
      * 

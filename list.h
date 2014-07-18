@@ -17,7 +17,7 @@ struct list_head {
 
 struct blist
 {
-	item_t * item;
+	void * item;
 	struct list_head listhead;
 };
 

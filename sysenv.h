@@ -15,6 +15,7 @@ typedef struct
 typedef struct
 {
     hash_table * entity_addr;
+    hash_table * alloced;
     sys_ops_t  * sys_ops;
 }sysinfo_t;
 

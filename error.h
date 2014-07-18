@@ -10,6 +10,7 @@
 
 #define SUCCESSED        0
 #define ENO_SUCH_ADDRESS -1000
+#define EUEQUEAL_ADDRESS -1001
 
 
 

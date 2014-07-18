@@ -15,10 +15,10 @@ typedef struct bucket {
     uint32_t count;
 } bucket_t; 
 
-typedef int  (compare)(item_t * a,item_t * b);
+typedef int  (compare)(void * a,void * b);
 typedef void (delete)(bucket_t * bucket);
-typedef void (make_new)(struct blist ** new_blist,item_t * value);
-typedef void (existed)(struct blist * blist,item_t * value);
+typedef void (make_new)(struct blist ** new_blist,void * value);
+typedef void (existed)(struct blist * blist,void * value);
 typedef void (viewer)(bucket_t * bucket);
 
 typedef struct _hash_table_ops

@@ -3,7 +3,7 @@
 
 OPT = -Os
 CFLAGS += -std=gnu99 -Wall -g
-OBJS += hash.o						
+OBJS += hash.o entity.o queue.o sysenv.o						
 
 
 .PHONY:clean all
