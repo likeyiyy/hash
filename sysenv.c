@@ -8,12 +8,13 @@
 #include "includes.h"
 
 sysinfo_t global_sysinfo_body;
-sysinfo_t * global_sysinfo;
+sysinfo_t * global_sysinfo = &global_sysinfo_body;
 
-static int compare_addr(void * item,void * address)
+static int compare_addr(void * item,void * item2)
 {
     entity_t * e = (entity_t *)item;
-    if(e->identity.addr == *(addr_t *)address)
+    entity_t * f = (entity_t *)item2;
+    if(e->identity.addr == f->identity.addr)
     {
         return 0;
     }
@@ -35,8 +36,9 @@ static void viewer_item(bucket_t * bucket)
         node = list_entry(p,struct blist,listhead); 
         entity_t * e = (entity_t *)node->item;
         printf("%d ",e->identity.addr);
+        if(p->next == list)
+            printf("\n");
     }
-    printf("\n");
 
 }
 ht_ops_t ht_ops = 
@@ -69,4 +71,5 @@ int init_sysenv(void)
     global_sysinfo->entity_addr = hash_create(GLOBAL_ENTITY_NUMS/20,&ht_ops);
     global_sysinfo->alloced = hash_create(GLOBAL_ENTITY_NUMS/20,&ht_ops2);
     global_sysinfo->sys_ops     = NULL;
+    return 0;
 }

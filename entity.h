@@ -12,6 +12,8 @@
 typedef uint32_t addr_t;
 typedef struct
 {
+    addr_t   dstaddr;
+    addr_t   srcaddr;
     uint32_t length;
     char  * data;
 }mail_t;
@@ -19,7 +21,7 @@ typedef struct
 {
     uint32_t id;
     addr_t   addr;
-    uint8_t * name;
+    char * name;
 }eid_t;
 typedef struct 
 {
@@ -38,4 +40,5 @@ typedef struct
     queue_t *   waiting;
 }entity_t;
 typedef entity_t item_t;
+entity_t * init_signle_entity(void);
 #endif

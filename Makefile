@@ -4,6 +4,7 @@
 OPT = -Os
 CFLAGS += -std=gnu99 -Wall -g
 OBJS += hash.o entity.o queue.o sysenv.o						
+LDFLAGS += -lpthread
 
 
 .PHONY:clean all

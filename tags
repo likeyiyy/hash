@@ -14,8 +14,9 @@ EQUEUE_EMPTY	error.h	18;"	d
 EQUEUE_FULL	error.h	17;"	d
 EUEQUEAL_ADDRESS	error.h	13;"	d
 EXECS	Makefile	/^EXECS=main$/;"	m
+FAILED_SIZE	includes.h	116;"	d
 GENERATOR_MODE	includes.h	62;"	d
-GLOBAL_ENTITY_NUMS	entity.c	39;"	d	file:
+GLOBAL_ENTITY_NUMS	includes.h	112;"	d
 INCLUDES_H	includes.h	8;"	d
 INIT_LIST_HEAD	list.h	/^static inline void INIT_LIST_HEAD(struct list_head *list)$/;"	f
 LOG_DEBUG	includes.h	92;"	d
@@ -27,15 +28,18 @@ L_ENTITY_H	entity.h	9;"	d
 L_ERROR_H	error.h	9;"	d
 L_HASH_H	hash.h	9;"	d
 L_SYSENV_H	sysenv.h	9;"	d
+MAILBOX_SIZE	includes.h	115;"	d
 MAKE_HASH	includes.h	109;"	d
 OPT	Makefile	/^OPT = -Os$/;"	m
 PAGE_SHIFT	includes.h	50;"	d
-PER_SEND_NUMS	entity.c	40;"	d	file:
+PER_SEND_NUMS	includes.h	113;"	d
 PROCBLOCK_SIZE	includes.h	49;"	d
 QUEUE_MANAGER_H	queue.h	8;"	d
 SUCCESSED	error.h	11;"	d
+SUCCESSED_SIZE	includes.h	118;"	d
 TRACE	includes.h	94;"	d
 VERIFY	includes.h	68;"	d
+WAITING_SIZE	includes.h	117;"	d
 __LIST_H_	list.h	10;"	d
 __list_add	list.h	/^static inline void __list_add(struct list_head *new,$/;"	f
 __list_del	list.h	/^static inline void __list_del(struct list_head * prev, struct list_head * next)$/;"	f
@@ -48,16 +52,19 @@ _send_mail	entity.c	/^static int _send_mail(addr_t address,mail_t * mail)$/;"	f	
 action	entity.h	/^    entity_ops  action;$/;"	m	struct:__anon6
 addr	entity.h	/^    addr_t   addr;$/;"	m	struct:__anon4
 addr_t	entity.h	/^typedef uint32_t addr_t;$/;"	t
+alloced	sysenv.h	/^    hash_table * alloced;$/;"	m	struct:__anon2
 blist	list.h	/^struct blist$/;"	s
+board_cast_mail	entity.c	/^static int board_cast_mail(mail_t * mail)$/;"	f	file:
 bool	includes.h	52;"	d
 bucket	hash.h	/^typedef struct bucket { $/;"	s
 bucket	hash.h	/^typedef void (delete)(bucket_t * bucket);$/;"	t
 bucket_t	hash.h	/^} bucket_t; $/;"	t	typeref:struct:bucket
 buckets	hash.h	/^        bucket_t * buckets;$/;"	m	struct:hash_table
-compare	hash.h	/^typedef int  (compare)(item_t * a,void * b);$/;"	t
-compare_addr	sysenv.c	/^static int compare_addr(item_t * a,void * address)$/;"	f	file:
+compare	hash.h	/^typedef int  (compare)(void * a,void * b);$/;"	t
+compare_addr	sysenv.c	/^static int compare_addr(void * item,void * address)$/;"	f	file:
+compare_addr2	sysenv.c	/^static int compare_addr2(void * item,void * address)$/;"	f	file:
 compare_handler	hash.h	/^    compare  * compare_handler;$/;"	m	struct:_hash_table_ops
-compare_item	main.c	/^static int compare_item(item_t * a,item_t * b)$/;"	f	file:
+compare_item	hash_test.c	/^static int compare_item(item_t * a,item_t * b)$/;"	f	file:
 count	hash.h	/^    uint32_t count;$/;"	m	struct:bucket
 data	entity.h	/^    char  * data;$/;"	m	struct:__anon3
 delete_handler	hash.h	/^    delete   * delete_handler;$/;"	m	struct:_hash_table_ops
@@ -67,16 +74,21 @@ empty	queue.h	/^    pthread_cond_t empty;$/;"	m	struct:_queue
 entity_addr	sysenv.h	/^    hash_table * entity_addr;$/;"	m	struct:__anon2
 entity_ops	entity.h	/^}entity_ops;$/;"	t	typeref:struct:__anon5
 entity_t	entity.h	/^}entity_t;$/;"	t	typeref:struct:__anon6
-existed	hash.h	/^typedef void (existed)(struct blist * blist,item_t * value);$/;"	t
+existed	hash.h	/^typedef void (existed)(struct blist * blist,void * value);$/;"	t
 existed_handler	hash.h	/^    existed  * existed_handler;$/;"	m	struct:_hash_table_ops
 exit_if_ptr_is_null	includes.h	/^static inline void exit_if_ptr_is_null(void * ptr,const char * message) $/;"	f
 failed	entity.h	/^    queue_t *   failed;$/;"	m	struct:__anon6
 false	includes.h	54;"	d
 find_list	hash.c	/^struct blist * find_list(struct list_head * head, $/;"	f
 full	queue.h	/^    pthread_cond_t full;$/;"	m	struct:_queue
+g_entitys	main.c	/^entity_t ** g_entitys;$/;"	v
+g_entitys_nums	main.c	/^int        g_entitys_nums = 2;$/;"	v
+get_addr	entity.c	/^static addr_t get_addr(void)$/;"	f	file:
+get_id	entity.c	/^static uint32_t get_id(void)$/;"	f	file:
 global_entity_ops	entity.c	/^entity_ops global_entity_ops =$/;"	v
-global_sysinfo	sysenv.c	/^sysinfo_t * global_sysinfo;$/;"	v
+global_sysinfo	sysenv.c	/^sysinfo_t * global_sysinfo = &global_sysinfo_body;$/;"	v
 global_sysinfo_body	sysenv.c	/^sysinfo_t global_sysinfo_body;$/;"	v
+global_trace	hash_test.c	/^int global_trace = ALLONE(5);$/;"	v
 global_trace	main.c	/^int global_trace = ALLONE(5);$/;"	v
 hash_add_item	hash.c	/^int  hash_add_item(hash_table ** htp, uint32_t key, void * value )$/;"	f
 hash_count	hash.c	/^uint32_t hash_count(hash_table * ht)$/;"	f
@@ -86,15 +98,18 @@ hash_table	hash.h	/^typedef struct hash_table $/;"	s
 hash_table	hash.h	/^} hash_table;$/;"	t	typeref:struct:hash_table
 hash_travel_delete	hash.c	/^void  hash_travel_delete(hash_table * ht)$/;"	f
 hash_travel_viewer	hash.c	/^void  hash_travel_viewer(hash_table * ht)$/;"	f
-ht_ops	main.c	/^ht_ops_t ht_ops = $/;"	v
+ht_ops	hash_test.c	/^ht_ops_t ht_ops = $/;"	v
+ht_ops	sysenv.c	/^ht_ops_t ht_ops = $/;"	v
+ht_ops2	sysenv.c	/^ht_ops_t ht_ops2 = $/;"	v
 ht_ops_t	hash.h	/^}ht_ops_t;$/;"	t	typeref:struct:_hash_table_ops
 id	entity.h	/^    uint32_t id;$/;"	m	struct:__anon4
 identity	entity.h	/^    eid_t       identity;$/;"	m	struct:__anon6
 init_queue	queue.c	/^queue_t * init_queue(int numbers,int item_size)$/;"	f
+init_signle_entity	entity.c	/^entity_t * init_signle_entity(void)$/;"	f
 init_sysenv	sysenv.c	/^int init_sysenv(void)$/;"	f
 is_empty_queue	queue.c	/^bool is_empty_queue(queue_t * queue)$/;"	f
 is_full_queue	queue.c	/^bool is_full_queue(queue_t * queue)$/;"	f
-item	list.h	/^	item_t * item;$/;"	m	struct:blist
+item	list.h	/^	void * item;$/;"	m	struct:blist
 item_size	queue.h	/^    int item_size;$/;"	m	struct:_queue
 item_t	entity.h	/^typedef entity_t item_t;$/;"	t
 length	entity.h	/^    uint32_t length;$/;"	m	struct:__anon3
@@ -102,6 +117,7 @@ length	queue.h	/^    unsigned int length;$/;"	m	struct:_queue
 list	hash.h	/^    struct list_head list;$/;"	m	struct:bucket	typeref:struct:bucket::list_head
 list_add	list.h	/^static inline void list_add(struct list_head *new, struct list_head *head)$/;"	f
 list_add_tail	list.h	/^static inline void list_add_tail(struct list_head *new, struct list_head *head)$/;"	f
+list_cast_handler	entity.c	/^static void list_cast_handler(bucket_t * bucket,mail_t * mail)$/;"	f	file:
 list_del	list.h	/^static inline void list_del(struct list_head *entry)$/;"	f
 list_empty	list.h	/^static inline int list_empty(const struct list_head *head)$/;"	f
 list_entry	list.h	75;"	d
@@ -113,12 +129,14 @@ listhead	list.h	/^	struct list_head listhead;$/;"	m	struct:blist	typeref:struct:
 lock	hash.h	/^    pthread_mutex_t  lock;$/;"	m	struct:bucket
 mail_t	entity.h	/^}mail_t;$/;"	t	typeref:struct:__anon3
 mailbox	entity.h	/^    queue_t *   mailbox;$/;"	m	struct:__anon6
+main	hash_test.c	/^int main(int argc,char ** argv)$/;"	f
 main	main.c	/^int main(int argc,char ** argv)$/;"	f
 main_loop	entity.h	/^    void *(*main_loop)(void * arg);$/;"	m	struct:__anon5
-make_new	hash.h	/^typedef void (make_new)(struct blist ** new_blist,item_t * value);$/;"	t
-make_new_item	main.c	/^static void make_new_item(struct blist ** new_blist,item_t * value)$/;"	f	file:
+make_new	hash.h	/^typedef void (make_new)(struct blist ** new_blist,void * value);$/;"	t
+make_new_addr	sysenv.c	/^static void make_new_addr(struct blist ** new_blist,void * value)$/;"	f	file:
+make_new_item	hash_test.c	/^static void make_new_item(struct blist ** new_blist,item_t * value)$/;"	f	file:
 mutex	queue.h	/^    pthread_mutex_t mutex;$/;"	m	struct:_queue
-name	entity.h	/^    uint8_t * name;$/;"	m	struct:__anon4
+name	entity.h	/^    char * name;$/;"	m	struct:__anon4
 new_handler	hash.h	/^    make_new * new_handler;$/;"	m	struct:_hash_table_ops
 next	list.h	/^	struct list_head* next; $/;"	m	struct:list_head	typeref:struct:list_head::list_head
 next_prime	hash.c	/^static int next_prime(int x)$/;"	f	file:
@@ -142,5 +160,6 @@ total	queue.h	/^    unsigned int total;$/;"	m	struct:_queue
 true	includes.h	53;"	d
 viewer	hash.h	/^typedef void (viewer)(bucket_t * bucket);$/;"	t
 viewer_handler	hash.h	/^    viewer   * viewer_handler;$/;"	m	struct:_hash_table_ops
-viewer_item	main.c	/^static void viewer_item(bucket_t * bucket)$/;"	f	file:
+viewer_item	hash_test.c	/^static void viewer_item(bucket_t * bucket)$/;"	f	file:
+viewer_item	sysenv.c	/^static void viewer_item(bucket_t * bucket)$/;"	f	file:
 waiting	entity.h	/^    queue_t *   waiting;$/;"	m	struct:__anon6

@@ -117,6 +117,7 @@ static inline void exit_if_ptr_is_null(void * ptr,const char * message)
 #define WAITING_SIZE        1000
 #define SUCCESSED_SIZE      10000
 
+extern int global_trace;
 #include "error.h"
 #include "queue.h"
 

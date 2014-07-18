@@ -6,7 +6,7 @@
  ************************************************************************/
 
 #include "includes.h"
-extern uint32_t global_trace;
+extern int global_trace;
 
   
 static int next_prime(int x)
@@ -47,7 +47,7 @@ struct blist * find_list(struct list_head * head,
                 node = list_entry(p,struct blist,listhead);
                 if(compare_handler(node->item, item) == 0)
                 {   
-                    return node;
+                    return node->item;
                 }   
         }   
         return NULL;
